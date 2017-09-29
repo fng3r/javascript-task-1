@@ -19,14 +19,14 @@ const timeTemplate = 'HH:MM';
  * @returns {String} – время римскими цифрами (IX:V)
  */
 module.exports = function romanTime(time) {
-    let timeTokens = time.split(':');
+    const timeTokens = time.split(':');
 
     if (!timeFormat.test(time)) {
         throw new TypeError('Time format should be HH:MM');
     }
 
-    let hours = Number(timeTokens[0]);
-    let minutes = Number(timeTokens[1]);
+    const hours = Number(timeTokens[0]);
+    const minutes = Number(timeTokens[1]);
 
     if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
         throw new TypeError('Time should be in range from 00:00 to 23:59');
@@ -42,7 +42,7 @@ function convertArabicToRoman(number) {
         return 'N';
     }
 
-    let arabicNumbers = Object.keys(ARABIC_TO_ROMAN);
+    const arabicNumbers = Object.keys(ARABIC_TO_ROMAN);
     let index = arabicNumbers.length - 1;
 
     let result = '';
