@@ -19,14 +19,11 @@ const timeTemplate = 'HH:MM';
  * @returns {String} – время римскими цифрами (IX:V)
  */
 module.exports = function romanTime(time) {
-    const timeTokens = time.split(':');
-
     if (!timeFormat.test(time)) {
         throw new TypeError('Time format should be HH:MM');
     }
 
-    const hours = Number(timeTokens[0]);
-    const minutes = Number(timeTokens[1]);
+    const [hours, minutes] = time.split(':').map(Number);
 
     if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
         throw new TypeError('Time should be in range from 00:00 to 23:59');
